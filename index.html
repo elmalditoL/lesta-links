@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LESTA</title>
+<meta name="description" content="Escuchá a LESTA. Spotify, YouTube, TikTok, Instagram.">
+<meta property="og:title" content="LESTA">
+<meta property="og:description" content="Escuchá a LESTA">
+<meta name="theme-color" content="#D6DCDD">
+<!-- ↓ CAMBIAR DE ERA = CAMBIAR ESTA LINEA -->
+<link rel="stylesheet" href="themes/era-1.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div class="wrap">
+  <img class="avatar" id="avatar" alt="LESTA">
+  <h1 class="wordmark" id="wordmark"></h1>
+  <p class="tagline" id="tagline"></p>
+  <p class="oyentes" id="oyentes" hidden></p>
+
+  <div class="marquee" id="marquee" hidden>
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+
+  <section class="drop" id="drop" hidden>
+    <div class="drop-eyebrow"><span class="pulse"></span><span id="dropEyebrow"></span></div>
+    <h2 class="drop-title" id="dropTitle"></h2>
+    <p class="drop-date" id="dropDate"></p>
+    <div class="clock" id="clock">
+      <div class="unit"><div class="num" id="d">00</div><div class="lbl">Días</div></div>
+      <div class="unit"><div class="num" id="h">00</div><div class="lbl">Horas</div></div>
+      <div class="unit"><div class="num" id="m">00</div><div class="lbl">Min</div></div>
+      <div class="unit"><div class="num" id="s">00</div><div class="lbl">Seg</div></div>
+    </div>
+  </section>
+
+  <nav class="links" id="links"></nav>
+  <footer id="footer"></footer>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

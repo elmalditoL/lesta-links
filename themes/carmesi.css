@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Space+Mono:wght@400;700&display=swap');
+
+/* ══════════════════════════════════════════════════════════
+   TEMA — CARMESÍ
+   Sacado de la landing del lanzamiento.
+   Negro casi puro, carmesí de labial, tipografía erosionada.
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --bg:        #0B0A0B;   /* negro de la landing */
+  --bg-2:      #151114;   /* negro elevado */
+  --paper:     #171215;   /* tarjetas: casi fondo, se separan por borde */
+  --ink:       #F4F4F4;
+  --muted:     #8A7076;
+  --line:      #3A2226;
+  --accent:    #C0202B;   /* el rojo del botón COMPRAR */
+  --accent-ink:#FFFFFF;
+
+  --radius:    4px;       /* la landing es de esquinas duras */
+  --display:   'Rubik Distressed', 'Archivo', system-ui, sans-serif;
+  --body:      'Space Mono', ui-monospace, monospace;
+  --wordmark-tracking: 0.01em;
+  --grain: 0.09;          /* más textura, la landing es sucia */
+}
+
+/* ── Ajustes propios de esta era ──────────────────────────
+   El motor (base.css) queda intacto. Esto solo lo pinta.  */
+
+/* Glow rojo detrás del wordmark, como en el hero */
+.wordmark{
+  color:var(--accent);
+  text-shadow:0 0 28px rgba(192,32,43,.55), 0 0 4px rgba(192,32,43,.9);
+}
+.tagline{
+  text-transform:uppercase;letter-spacing:.22em;font-size:10px;
+}
+
+/* Tarjetas con borde en vez de sombra */
+.link, .drop{
+  border:1px solid var(--line);
+  box-shadow:none;
+  background:var(--paper);
+}
+.link{text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+@media(hover:hover){
+  .link:hover{
+    border-color:var(--accent);
+    box-shadow:0 0 0 1px var(--accent), 0 8px 24px rgba(192,32,43,.18);
+    transform:none;
+  }
+}
+.link.primary{border-color:var(--accent)}
+
+.drop-title{
+  text-shadow:0 0 18px rgba(192,32,43,.5);
+  letter-spacing:.02em;
+}
+.num{color:var(--accent);text-shadow:0 0 16px rgba(192,32,43,.4)}
+.avatar{
+  border-radius:4px;                 /* sin círculo, como el arte */
+  border:1px solid var(--line);
+  position:relative;
+}
+
+/* Oyentes: el punto pulsa como el del countdown */
+.oyentes{
+  text-transform:uppercase;letter-spacing:.14em;font-size:10px;
+}
+.oyentes .dot{animation:pulse 2s ease-in-out infinite}
+.oyentes b{color:var(--accent)}
+
+/* Marquesina: cinta de tape pegada, como la de la landing */
+.marquee{
+  background:var(--accent);
+  border-radius:0;
+  transform:rotate(-1.4deg);
+  margin:26px -6px 30px;
+  padding:10px 0;
+  box-shadow:0 6px 22px rgba(192,32,43,.35);
+}
+.marquee-item{
+  color:var(--accent-ink);font-weight:800;letter-spacing:.16em;
+}
+.marquee-item::after{content:"●";color:var(--accent-ink);opacity:.55;font-size:8px}

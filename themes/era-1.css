@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* ══════════════════════════════════════════════════════════
+   TEMA — ERA 1
+   Esto es lo único que cambiás por lanzamiento.
+   Duplicás este bloque, lo renombrás (ej: tema-carmesi)
+   y listo. Todo lo de abajo queda igual.
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --bg:        #D6DCDD;   /* fondo: día nublado, como la portada */
+  --bg-2:      #C6CFD0;   /* fondo degradado inferior */
+  --paper:     #FFFFFF;   /* tarjetas */
+  --ink:       #0E1214;   /* texto principal */
+  --muted:     #6E797D;   /* texto secundario */
+  --line:      #BFC8CA;   /* hairlines */
+  --accent:    #3F5C36;   /* verde vegetación */
+  --accent-ink:#FFFFFF;
+
+  --radius:    14px;
+  --display:   'Archivo', system-ui, sans-serif;
+  --body:      'Space Grotesk', system-ui, sans-serif;
+  --wordmark-tracking: -0.045em;
+  --grain: 0.035;         /* textura de fondo, 0 = limpio */
+}
+/* ══════════════════════════════════════════════════════════ */
