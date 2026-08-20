@@ -16,6 +16,14 @@ $('footer').textContent   = CONFIG.footer;
 $('avatar').alt = CONFIG.nombre;
 if (CONFIG.foto) $('avatar').src = CONFIG.foto;
 
+/* Social (fila de íconos chicos arriba, estilo Linktree) */
+if (CONFIG.social && CONFIG.social.length) {
+  $('social').innerHTML = CONFIG.social.map(s => `
+    <a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.icono}">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[s.icono]||''}</svg>
+    </a>`).join('');
+}
+
 /* Marquesina */
 if (CONFIG.marquee && CONFIG.marquee.activo && CONFIG.marquee.texto) {
   const track = $('marqueeTrack');
@@ -41,10 +49,26 @@ if (CONFIG.oyentes && CONFIG.oyentes.activo && CONFIG.oyentes.endpoint) {
 
 /* Links */
 $('links').innerHTML = CONFIG.links.map((l,i) => {
+  const delay = `style="animation-delay:${120 + i*70}ms"`;
+
+  // Con "miniatura" definida: tarjeta grande con imagen, estilo Linktree.
+  // Sin ella: la fila clásica con ícono chico (como hasta ahora).
+  if (l.miniatura) {
+    const size = l.miniaturaChica ? 'thumb small' : 'thumb';
+    const cls = ['link', size, l.proximamente && 'soon'].filter(Boolean).join(' ');
+    const badge = l.proximamente ? '<span class="arrow">Pronto</span>' : '';
+    return `<a class="${cls}" href="${l.url}" target="_blank" rel="noopener" ${delay}>
+              <img class="thumb-img" src="${l.miniatura}" alt="" loading="lazy">
+              <span class="thumb-body">
+                <span class="txt">${l.titulo}${l.subtitulo ? `<span class="sub">${l.subtitulo}</span>` : ''}</span>
+                ${badge}
+              </span>
+            </a>`;
+  }
+
   const cls = ['link', l.destacado && 'primary', l.proximamente && 'soon'].filter(Boolean).join(' ');
   const right = l.proximamente ? 'Pronto' : '→';
-  return `<a class="${cls}" href="${l.url}" target="_blank" rel="noopener"
-             style="animation-delay:${120 + i*70}ms">
+  return `<a class="${cls}" href="${l.url}" target="_blank" rel="noopener" ${delay}>
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icono]||''}</svg>
             <span class="txt">${l.titulo}</span>
             <span class="arrow">${right}</span>
@@ -62,6 +86,8 @@ if (L.activo) {
     { day:'numeric', month:'long', timeZone:'America/Argentina/Buenos_Aires' });
 
   const pad = n => String(n).padStart(2,'0');
+
+  let timer; // declarado antes de usarse, así "salio()" no explota si el lanzamiento ya pasó
 
   const tick = () => {
     const diff = target - Date.now();
@@ -87,5 +113,5 @@ if (L.activo) {
   };
 
   tick();
-  const timer = setInterval(tick, 1000);
+  timer = setInterval(tick, 1000);
 }
