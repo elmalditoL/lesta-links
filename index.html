@@ -7,9 +7,12 @@
 <meta name="description" content="Escuchá a LESTA. Spotify, YouTube, TikTok, Instagram.">
 <meta property="og:title" content="LESTA">
 <meta property="og:description" content="Escuchá a LESTA">
-<meta name="theme-color" content="#D6DCDD">
+<!-- TODO: cuando haya dominio, cambiar esto a la URL absoluta (ej: https://lesta.ar/assets/og-image.jpg) —
+     los crawlers de Instagram/WhatsApp no siempre resuelven bien una ruta relativa. -->
+<meta property="og:image" content="assets/og-image.jpg">
+<meta name="theme-color" content="#0B0A0B">
 <!-- ↓ CAMBIAR DE ERA = CAMBIAR ESTA LINEA -->
-<link rel="stylesheet" href="themes/era-1.css">
+<link rel="stylesheet" href="themes/carmesi.css">
 <link rel="stylesheet" href="base.css">
 </head>
 <body>
@@ -18,6 +21,7 @@
   <h1 class="wordmark" id="wordmark"></h1>
   <p class="tagline" id="tagline"></p>
   <p class="oyentes" id="oyentes" hidden></p>
+  <div class="social" id="social"></div>
 
   <div class="marquee" id="marquee" hidden>
     <div class="marquee-track" id="marqueeTrack"></div>
