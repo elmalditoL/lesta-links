@@ -68,6 +68,17 @@
 .oyentes .dot{animation:pulse 2s ease-in-out infinite}
 .oyentes b{color:var(--accent)}
 
+/* Fila de íconos sociales: mismo lenguaje de tarjeta con borde */
+.social a{
+  border:1px solid var(--line);background:var(--paper);
+}
+@media(hover:hover){
+  .social a:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+}
+
+/* Tarjetas con miniatura: la imagen queda sin filtro, el texto sigue el mismo trato */
+.link.thumb .sub{text-transform:none;letter-spacing:0;font-family:var(--body)}
+
 /* Marquesina: cinta de tape pegada, como la de la landing */
 .marquee{
   background:var(--accent);
